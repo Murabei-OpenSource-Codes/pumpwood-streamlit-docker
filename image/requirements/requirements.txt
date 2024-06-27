@@ -13,4 +13,4 @@ plotly==5.22.0
 https://github.com/Murabei-OpenSource-Codes/pumpwood-communication/archive/refs/tags/1.31.3.zip
 
 # Streamlit
-https://github.com/Murabei-OpenSource-Codes/pumpwood-streamlit-pkg/archive/refs/tags/0.2.zip
+https://github.com/Murabei-OpenSource-Codes/pumpwood-streamlit-pkg/archive/refs/tags/0.3.zip
