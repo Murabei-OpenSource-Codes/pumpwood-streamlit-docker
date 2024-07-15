@@ -16,7 +16,7 @@ docker image.
 
 ```
 # User pumpwood-streamlit-app as base image
-FROM docker.io/andrebaceti/pumpwood-streamlit-app:0.0
+FROM docker.io/andrebaceti/pumpwood-streamlit-app:[version]
 
 # Set a dashboard name, this will be registered at kong using route
 # /streamlit/$DASHBOARD_NAME
@@ -41,7 +41,7 @@ the routes on pumpwood-auth.
 Dashboard codes need at least two files `app.py` and `dashboard.py`.
 
 ### app.py
-Entry point for streamlit, it is normally just a simple code. Example:
+Entry point for Streamlit, it is normally just a simple code. Example:
 ```python
 from dashboard import Dashboard
 
