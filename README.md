@@ -37,6 +37,24 @@ It is necessary to set `MICROSERVICE_URL`, `MICROSERVICE_USERNAME` and
 `MICROSERVICE_PASSWORD` to log in server user on Pumpwood to register
 the routes on pumpwood-auth.
 
+## Environment variables
+- **SERVICE_URL:** URL of the service that will serve the dashboard,
+  use only the service base url starting with http and tralling `/`. Example:
+  `http://pumpwood-streamlit-app:5000/`.
+- **MICROSERVICE_URL:** Correpond to URL that will be called for Pumpwood
+  end-points. It is usually the end-point correponding to Kong service mesh,
+  example: `http://load-balancer:8000/`.
+- **MICROSERVICE_USERNAME:** Username for the Pumpwood user used to register
+  streamlit service and rote on Pumpwood. It is usually not set with default
+  value `microservice--streamlit`.
+- **MICROSERVICE_PASSWORD:** Password for Pumpwood used to register
+  streamlit service and rote on Pumpwood. For develoment it is as default
+  set as `microservice--streamlit`. **CHANGE THIS VALUE AT PRODUCTION**.
+- **DASHBOARD_NAME:** Name of the dashboard that will be deployed. Name
+  must comply with URL format, use snake-case without spaces and especial
+  characters. container will serve route with base url as
+  `streamlit/$DASHBOARD_NAME` with port 5000.
+
 ## Dashboard codes
 Dashboard codes need at least two files `app.py` and `dashboard.py`.
 
