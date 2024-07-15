@@ -43,9 +43,28 @@ Dashboard codes need at least two files `app.py` and `dashboard.py`.
 ### app.py
 Entry point for Streamlit, it is normally just a simple code. Example:
 ```python
+import os
 from dashboard import Dashboard
+from pumpwood_communication.microservices import PumpWoodMicroService
 
-dash_obj = Dashboard()
+##########################################################################
+# Read env variables to be used on local test of the dashboard.          #
+# Passing a logged microservice to dashboard will disable authentication #
+# !!! DO NOT USE AUTHENTICATED MICROSERVICE IN PRODUCTION DASHBOARDS !!! #
+MICROSERVICE_URL = os.getenv('MICROSERVICE_URL')
+MICROSERVICE_DASHBOARD_USERNAME = os.getenv('MICROSERVICE_DASHBOARD_USERNAME')
+MICROSERVICE_DASHBOARD_PASSWORD = os.getenv('MICROSERVICE_DASHBOARD_PASSWORD')
+
+microservice = None
+if MICROSERVICE_DASHBOARD_USERNAME is not None:
+    microservice = PumpWoodMicroService(
+        name="dashboard-microservice",
+        server_url=MICROSERVICE_URL,
+        username=MICROSERVICE_DASHBOARD_USERNAME,
+        password=MICROSERVICE_DASHBOARD_PASSWORD,)
+    microservice.login()
+
+dash_obj = Dashboard(microservice=microservice)
 dash_obj.run()
 ```
 
