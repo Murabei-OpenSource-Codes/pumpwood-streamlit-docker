@@ -22,6 +22,7 @@ ENV MICROSERVICE_SSL='False'
 
 # Streamlit Configuration
 ENV DASHBOARD_NAME="example-dashboard"
+ENV PUMPWOOD_STREAMLIT__DEPLOY="TRUE"
 #################################
 
 COPY requirements/requirements.txt ./
