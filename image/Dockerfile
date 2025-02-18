@@ -1,4 +1,4 @@
-FROM python:3.8-slim-bullseye
+FROM python:3.12-slim-bullseye
 
 # Install packages
 RUN apt-get update
@@ -22,6 +22,7 @@ ENV MICROSERVICE_SSL='False'
 
 # Streamlit Configuration
 ENV DASHBOARD_NAME="example-dashboard"
+ENV PUMPWOOD_STREAMLIT__DEPLOY="TRUE"
 #################################
 
 COPY requirements/requirements.txt ./
